@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101828">
+  <title>Private UPI Analyzer</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Keep this library file beside index.html. No CDN/network request is made. -->
+  <script src="xlsx.full.min.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div>
+        <p class="eyebrow">PERSONAL FINANCE · OFFLINE-FIRST</p>
+        <h1>Your money,<br>clearly.</h1>
+        <p class="muted">Statement analysis happens in this browser on this device.</p>
+      </div>
+      <div class="shield" aria-label="Local processing">🔒</div>
+    </header>
+
+    <section class="metrics">
+      <article class="metric">
+        <span class="metric-label">Total spent</span>
+        <strong id="spent">₹0</strong>
+      </article>
+      <article class="metric">
+        <span class="metric-label">Total income</span>
+        <strong id="income">₹0</strong>
+      </article>
+    </section>
+
+    <section class="panel import-panel">
+      <h2>Import HDFC statement</h2>
+      <p class="muted">Choose CSV, XLS or XLSX. The file is read locally; there is no upload feature.</p>
+      <label class="file-button" for="file">Choose statement</label>
+      <input id="file" type="file" accept=".csv,.xls,.xlsx,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+      <p class="small muted" id="status" role="status">Ready. Try the included sample CSV first.</p>
+      <button id="sample" class="secondary">Load sample data</button>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Transactions</h2>
+        <span id="count" class="pill">0</span>
+      </div>
+      <p class="muted small">Please compare imported totals with your original statement before relying on them.</p>
+      <div id="empty" class="empty">No transactions yet. Import a statement or load sample data.</div>
+      <div id="transactions" class="transactions"></div>
+    </section>
+
+    <section class="privacy">
+      <strong>Privacy note</strong>
+      <p>This starter contains no analytics, backend, advertising, or AI requests. Transaction data is held in page memory only and disappears when you close or reload the page. This version does not persist transactions.</p>
+      <button id="clear" class="text-button">Clear transactions</button>
+    </section>
+    <footer>Prototype · No bank connection · No cloud AI</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

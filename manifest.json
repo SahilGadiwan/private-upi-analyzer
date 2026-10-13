@@ -1,0 +1,9 @@
+{
+  "name": "Private UPI Analyzer",
+  "short_name": "UPI Analyzer",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#101828",
+  "description": "Offline-first local bank statement analyzer"
+}
