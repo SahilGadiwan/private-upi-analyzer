@@ -1,7 +1,7 @@
-const CACHE = "upi-analyzer-v1";
+const CACHE = "upi-analyzer-v2";
 const ASSETS = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.json", "./xlsx.full.min.js"];
 self.addEventListener("install", event => {
-  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS.filter(Boolean).filter(a=>a!=="./xlsx.full.min.js"))).then(()=>self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS).then(()=>self.skipWaiting()));
 });
 self.addEventListener("activate", event => event.waitUntil(self.clients.claim()));
 self.addEventListener("fetch", event => {
